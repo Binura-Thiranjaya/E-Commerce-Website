@@ -48,7 +48,7 @@ session_start();
     </tr>
     <tr>
         <td></td>
-        <td><p style="font-size: 2rem;color: darkred">LogOut <a  class="btn" href="cart.php" style="font-size: 2rem;color: darkred;">
+        <td><p style="font-size: 2rem;color: darkred">LogOut <a  class="btn" href="signin.php" style="font-size: 2rem;color: darkred;">
                     <i class="fa fa-sign-out" style="transform: rotate(180deg);" aria-hidden="true"></i>
                 </a></p></td>
         <td></td>
