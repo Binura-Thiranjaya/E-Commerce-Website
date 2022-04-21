@@ -1,0 +1,28 @@
+body{
+    background-color: #dddddd;
+}
+h1{
+    font-size: 2.4rem;
+    color: black;
+}
+table {
+    margin:10% 0%;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 0px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+.btn{
+    position: center;
+    font-size: 1.5rem;
+    color: black;
+}
+p{
+    font-size: 1rem;
+    text-align: center;
+}

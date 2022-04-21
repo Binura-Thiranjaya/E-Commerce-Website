@@ -9,26 +9,27 @@
 <!--PHP Part-->
 
     <?php
-    require 'server.php';
+    session_start();
+    $con = mysqli_connect('localhost','root','','ECommerce');
+    if(!$con)
+    {
+        die("Something went wrong....Please try again....");
+    }
+        include("function.php");
     if (isset($_POST["signupbtn"])){
         $uname= $_POST['uname'];
         $email = $_POST['email'];
         $password_1 =$_POST['password_1'];
         $password_2 = $_POST['password_2'];
+        $utype ="customer";
 
-        //Check Wheather Data is Already Exits
-        $check="SELECT * FROM `user` WHERE `email`= '$email' || `uname`='$uname'";
-        $rs = mysqli_query($con,$check);
-        $data = mysqli_fetch_array($rs, MYSQLI_NUM);
-        if($data[0] > 1) {
-            echo "<script>alert('User alreay Exits! Please Check Again!');</script>";
-        }
-        //If the data is not already exits new user added
-        elseif ( $password_1 == $password_2 && $password_1!=null && $uname!=null) {
-            $sql = "INSERT INTO `user` (`uname`, `email`, `password`) VALUES ('$uname', '$email', '$password_1');";
+        if ( $password_1 == $password_2 ) {
+            $sql = "INSERT INTO `user` (`uname`, `email`, `password`,`Utype`) VALUES ('$uname', '$email', '$password_1','$utype');";
             mysqli_query($con, $sql);
-            mysqli_close($con);
-        }else{
+
+            header("Location: signin.php");
+            die;
+         }else{
             echo "<script>alert('Password Might Be Wrong! Please Check Again!');</script>";
         }
     }
@@ -55,6 +56,10 @@
         function showPage() {
             document.getElementById("loader").style.display = "none";
             document.getElementById("myDiv").style.display = "block";
+            document.getElementById("uname").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("password_1").value = "";
+            document.getElementById("password_2").value = "";
         }
         function clearAll() {
             document.getElementById("uname").value = "";

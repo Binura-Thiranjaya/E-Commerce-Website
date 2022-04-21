@@ -44,7 +44,7 @@ button:hover {
 }
 
 /* Float cancel and signup buttons and add an equal width */
-.cancelbtn, .signupbtn {
+.cancelbtn, .signupbtn, .signinbtn {
     float: left;
     width: 50%;
 }
@@ -60,6 +60,7 @@ button:hover {
     clear: both;
     display: table;
 }
+
 
 #loader {
     position: absolute;
