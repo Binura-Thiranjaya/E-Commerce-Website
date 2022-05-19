@@ -34,7 +34,7 @@ if(!isset($_SESSION["email"]))
 
     <div class="clearfix">
         <button type="submit" class="button" name="btnSubmit" id="btnSubmit">Update </button>
-        <button type="submit" class="button" style="background-color: red" name="btnDelete" id="btnDelete" onclick="DeleteImg()">Delete</button>
+        <button type="submit" class="button" style="background-color: red" name="btnDelete" id="btnDelete" >Delete</button>
         <button type="button" class="button" style="background-color: black" onclick="goHome()">Home</button>
         <button type="button" class="button" style="background-color: firebrick" onclick="clearAll()">Cancel</button>
 

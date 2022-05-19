@@ -1,7 +1,7 @@
 <?php  session_start();
-if(!isset($_SESSION["email"]))
+if(!isset($_SESSION["uname"]))
 {
-    header('Location:login.php');
+    header('Location:signin.php');
 }
 ?>
 <!DOCTYPE html>
@@ -13,12 +13,11 @@ if(!isset($_SESSION["email"]))
     <title>BT-Enterprise</title>
 </head>
 <body>
-<h1><?php echo $_SESSION["email"] ?></h1>
 
 <div class="navbar">
     <a href="./home.php">User</a>
     <a href="./home.php">Home</a>
-    <a href="#news">Cart</a>
+    <a href="cart.php">Cart</a>
 
     <div class="search-container">
         <form action="">
@@ -29,6 +28,8 @@ if(!isset($_SESSION["email"]))
 
 </div>
 <div class="header">
+    <li><h1 style="color: red"><?php echo $_SESSION["uname"]; ?></h1></li>
+
     <h1 style="text-align: center">Products</h1>
 </div>
 <section class="productList" style="padding-left: 10%">
@@ -49,11 +50,31 @@ if(!isset($_SESSION["email"]))
                         <img src= '".$row["path"]."' alt='Denim Jeans' style='width:220px; height: 200px'>
                             <h1>".$row["name"]."</h1>
                             <p class='price'>Rs.".$row["price"].".00</p>
-                                <p><button>Add to Cart</button></p>
+                                <p><a href='product.php?id=".$row["id"]."'><button type='submit' >Add to Cart</button></a></p>
                      </div>
-
-                                               ";
+                ";
         }
+
+    }
+
+    ?>
+    <?php
+
+                $sql="SELECT * FROM `product` WHERE `id`='".$_GET["id"]."'";
+
+                $results=mysqli_query($con,$sql);
+                    if(mysqli_num_rows($results)>0) {
+                $row = mysqli_fetch_assoc($results);
+                        $sql = "INSERT INTO `cart` (`id`, `email`,`ProductID`, `products`,`price`,`path`) VALUES (NULL, '".$_SESSION["uname"]."','".$_GET["id"]."','".$row["name"]."', '".$row["price"]."','".$row["path"]."');";
+                        if(mysqli_query($con, $sql))
+                        {
+                            echo "<script>alert('ADDED');</script>";
+                            header("Location: cart.php");
+
+                        }else{
+                            echo "<script>alert('Password Might Be Wrong! Please Check Again!');</script>";
+                        }
+
     }
 
     ?>

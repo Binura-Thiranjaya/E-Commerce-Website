@@ -1,3 +1,10 @@
+
+<?php  session_start();
+if(!isset($_SESSION["uname"]))
+{
+    header('Location:signin.php');
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,29 +17,69 @@
     <title>Document</title>
 </head>
 <body>
+
 <table>
     <tr>
+        <th>Product Image</th>
         <th>Product Id</th>
         <th>Product Name</th>
-        <th>Orderd Date</th>
-        <th></th>
-        <th>Update</th>
+        <th>Price</th>
         <th>Delete</th>
-
-
     </tr>
+<?php
+$con=mysqli_connect("localhost","root","","ECommerce");
+
+if(!$con)
+{
+    die("cannot connect to the DB server");
+}
+$sql="SELECT * FROM `cart` WHERE `email`='".$_SESSION["uname"]."'";
+
+
+$results=mysqli_query($con,$sql);
+if(mysqli_num_rows($results)>0)
+{
+    while($row=mysqli_fetch_assoc($results))
+    {
+        echo "
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>#</td>
-        <td>#</td>
-
+        <td>                        
+            <img src= '".$row["path"]."' alt='Denim Jeans' style='width:100px; height: 100px'>
+        </td>
+        <td>                            
+            <p>".$row["ProductID"]."</p>
+        </td>
+        <td>                            
+            <p>".$row["products"]."</p>
+        </td>
+        <td>                            
+            <p class='price'>Rs.".$row["price"].".00</p>
+        </td>
+        <td>                                
+            <p><a href='deleteFile.php?id=".$row["id"]."'><button type='submit' name='btnDelete' id='btnDelete' onclick='DeleteStock()' >Delete</button></a></p>
+        </td>
+        
     </tr>
+     ";
+    }
+}
+
+?>
+    <?php
+    //Delete
+
+    if(isset($_POST["btnDelete"])){
+            echo "<script>alert('ERROR FILE Deleted')</script>";
+
+    }
+    ?>
+
 
 </table>
-<a  class="btn" href="customerHome.php" style="font-size: 2rem;color: darkred;">
+
+
+
+<a  class="btn" href="product.php" style="font-size: 2rem;color: darkred;">
     <i class="fa fa-sign-out" style="transform: rotate(180deg);" aria-hidden="true"></i>
 </a>
 

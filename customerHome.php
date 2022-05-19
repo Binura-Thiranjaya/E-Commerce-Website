@@ -27,8 +27,8 @@
 
 <table>
     <tr>
-        <td><button class="btn"><a href="product.php"><i class="fa fa-user"></i></a></button></td>
-        <td><button class="btn"><a href="product.php.php"><i class="fa fa-cart-plus" style=""></i></a></button</td>
+        <td><button class="btn"><a href="profile.php"><i class="fa fa-user"></i></a></button></td>
+        <td><button class="btn"><a href="product.php"><i class="fa fa-cart-plus" style=""></i></a></button</td>
     </tr>
 
 </table>

@@ -49,7 +49,7 @@ if(!isset($_SESSION["email"]))
                         <img src= '" .$row["path"]."' alt='Denim Jeans' style='width:220px; height: 200px'>
                             <h1>".$row["name"]."</h1>
                             <p class='price'>Rs.".$row["price"].".00</p>
-                                <p><a href='updateProduct.php?id=".$row["id"]."'><button type='submit' onclick='update()'>Update</button></a></p>
+                                <p><a href='updateProduct.php?id=".$row["id"]."'><button type='submit'>Update</button></a></p>
                      </div>
                       ";
         }
