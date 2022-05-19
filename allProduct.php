@@ -10,7 +10,7 @@ if(!isset($_SESSION["email"]))
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./css/product.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>BT-Enterprise</title>
+    <title>ALL STOCK</title>
 </head>
 <body>
 <h1><?php echo $_SESSION["email"] ?></h1>
@@ -29,7 +29,7 @@ if(!isset($_SESSION["email"]))
 
 </div>
 <div class="header">
-    <h1 style="text-align: center">Products</h1>
+    <h1 style="text-align: center">ALL STOCK</h1>
 </div>
 <section class="productList" style="padding-left: 10%">
     <?php
@@ -45,19 +45,17 @@ if(!isset($_SESSION["email"]))
     {
         while($row=mysqli_fetch_assoc($results))
         {
-            echo "<div class='card'>
-                        <img src= '".$row["path"]."' alt='Denim Jeans' style='width:220px; height: 200px'>
+            echo "<div class='card' xmlns=\"http://www.w3.org/1999/html\">
+                        <img src= '" .$row["path"]."' alt='Denim Jeans' style='width:220px; height: 200px'>
                             <h1>".$row["name"]."</h1>
                             <p class='price'>Rs.".$row["price"].".00</p>
-                                <p><button>Add to Cart</button></p>
+                                <p><a href='updateProduct.php?id=".$row["id"]."'><button type='submit' onclick='update()'>Update</button></a></p>
                      </div>
-
-                                               ";
+                      ";
         }
     }
 
     ?>
-
 
 
 </section>

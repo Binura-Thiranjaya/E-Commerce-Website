@@ -10,8 +10,7 @@
 <body>
 <?php
 $email = isset($_GET['email']) ? $_GET['email'] : "";
-echo $email;
+echo <h1>$email</h1>";
 ?>
-<h1>Hi Admin</h1>
 </body>
 </html>

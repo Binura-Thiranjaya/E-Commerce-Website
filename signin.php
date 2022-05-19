@@ -1,4 +1,5 @@
-
+<?php  session_start();
+?>
 <!DOCTYPE html>
 <html lang="">
 <head>
@@ -8,32 +9,51 @@
 </head>
 <body onload="myFunction()" style="margin:0;">
 <?php
-session_start();
-
-$con = mysqli_connect('localhost','root','','ECommerce');
-if(!$con)
+if(isset($_POST["signinbtn"]))
 {
-    die("Something went wrong....Please try again....");
-}
-if (isset($_POST["signinbtn"])) {
-
     $email = $_POST['email'];
     $password = $_POST['password'];
     $utype = "customer";
+    $valid  =false;
+
+    $con=mysqli_connect("localhost","root","","ECommerce");
+
+    if(!$con)
+    {
+        die("cannot connect to the DB server");
+    }
 
     $check = "SELECT * FROM `user` WHERE `email`= '$email' AND `password` ='$password' AND `Utype`='$utype' LIMIT 1";
-    $result = mysqli_query($con, $check);
+    $results=mysqli_query($con,$check);//execute sql query
 
-    if ($result && mysqli_num_rows($result) > 0){
-        $user_data = mysqli_fetch_assoc($result);
-        $_SESSION["uname"] = $user_data['uname'];
-         echo $_SESSION['uname'];
-         header('Location: customerHome.php');
-    }else{
-        echo "<script>alert('Check Detils again')</script>";
+    if(mysqli_num_rows($results)>0)//if(($username=="test@gmail.com")&&($password=="test123"))
+    {
+        $valid=true;
+    }
+    else
+    {
+        $valid=false;
+    }
+    if($valid)
+    {
+        $_SESSION["uname"]=$email;
+        header('Location:customerHome.php');
+    }
+    else{
+        $checkAdmin = "SELECT * FROM `user` WHERE `email`= '$email' AND `password` ='$password' AND `Utype`='admin' LIMIT 1";
+        $results=mysqli_query($con,$checkAdmin);//execute sql query
 
+        if(mysqli_num_rows($results)>0)//if(($username=="test@gmail.com")&&($password=="test123"))
+        {
+            $_SESSION["email"]=$email;
+            header('Location:adminHome.php');        }
+        else
+        {
+            echo("Please enter correct username and password");
+        }
     }
-    }
+
+}
 ?>
 <!--JS Part-->
 <script>
@@ -67,6 +87,8 @@ if (isset($_POST["signinbtn"])) {
             <label for="password"></label><input type="password" placeholder="Enter Password" name="password" id="password" required>
 
             <p style="font-size: 1rem;font-weight: bold">Create a User A/C <a href="./signup.php" style="color:dodgerblue">Sign Up</a>.</p>
+            <p style="font-size: 1rem;font-weight: bold">Home Page <a href="./home.php" style="color:dodgerblue">Home Page</a>.</p>
+
 
             <div class="clearfix">
                 <button type="submit" class="signinbtn" name="signinbtn" id="signinbtn" >Sign In</button>
