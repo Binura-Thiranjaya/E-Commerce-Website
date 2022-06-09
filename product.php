@@ -1,5 +1,5 @@
 <?php  session_start();
-if(!isset($_SESSION["uname"]))
+if(!isset($_SESSION["email"]))
 {
     header('Location:signin.php');
 }
@@ -40,7 +40,7 @@ if(!isset($_SESSION["uname"]))
     {
         die("cannot connect to the DB server");
     }
-    $sql="SELECT * FROM `product`";
+    $sql="SELECT * FROM `product` WHERE `post`=1";
     $results=mysqli_query($con,$sql);
     if(mysqli_num_rows($results)>0)
     {

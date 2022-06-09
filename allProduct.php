@@ -13,7 +13,6 @@ if(!isset($_SESSION["email"]))
     <title>ALL STOCK</title>
 </head>
 <body>
-<h1><?php echo $_SESSION["email"] ?></h1>
 
 <div class="navbar">
     <a href="./home.php">User</a>

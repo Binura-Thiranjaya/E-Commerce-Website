@@ -56,8 +56,11 @@ $results=mysqli_query($con,$sql);
 if(mysqli_num_rows($results)>0) {
     $row = mysqli_fetch_assoc($results);
     echo "
-    <script>document.getElementById('txtProductName').value='".$row['name']."';
+    <script>
+    document.getElementById('txtProductName').value='".$row['name']."';
     document.getElementById('txtPrice').value='".$row['price']."';
+    document.getElementById('chkPublish').checked='".$row['post']."';
+
     </script>";
 
 }

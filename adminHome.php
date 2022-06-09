@@ -28,6 +28,7 @@
     <tr>
         <td><button class="btn"><a href="profile.php">Profile</a></button></td>
         <td><button class="btn"><a href="signupAdmin.php">User</a></button></td>
+        <td><button class="btn"><a href="allProduct.php">View</a></button></td>
         <td><button class="btn"><a href="crudProduct.php">Product</a></button></td>
     </tr>
 
