@@ -21,14 +21,14 @@
 </ul>
 <ul>
     <li><h1>Customer Email:</h1></li>
-    <li><h1 style="color: red"><?php echo $_SESSION["uname"]; ?></h1></li>
+    <li><h1 style="color: red"><?php echo $_SESSION["email"]; ?></h1></li>
 
 </ul>
 
 <table>
     <tr>
-        <td><button class="btn"><a href="profile.php"><i class="fa fa-user"></i></a></button></td>
-        <td><button class="btn"><a href="product.php"><i class="fa fa-cart-plus" style=""></i></a></button</td>
+        <td><button class="btn"><a href="profile.php">Profile</a></button></td>
+        <td><button class="btn"><a href="product.php">Product</i></a></button</td>
     </tr>
 
 </table>

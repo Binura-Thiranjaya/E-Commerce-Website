@@ -36,7 +36,6 @@ if(isset($_POST["signinbtn"]))
     }
     if($valid)
     {
-        $_SESSION["uname"]=$email;
         header('Location:customerHome.php');
     }
     else{
@@ -45,13 +44,14 @@ if(isset($_POST["signinbtn"]))
 
         if(mysqli_num_rows($results)>0)//if(($username=="test@gmail.com")&&($password=="test123"))
         {
-            $_SESSION["email"]=$email;
             header('Location:adminHome.php');        }
         else
         {
             echo("Please enter correct username and password");
         }
     }
+    $_SESSION["email"]=$email;
+
 
 }
 ?>

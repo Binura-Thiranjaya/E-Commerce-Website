@@ -26,9 +26,9 @@
 
 <table>
     <tr>
-        <td><button class="btn"><a href="profile.php"><i class="fa fa-user"></i></a></button></td>
-        <td><button class="btn"><a href="signupAdmin.php"><i class="fa fa-plus" style=""></i></a></button></td>
-        <td><button class="btn"><a href="crudProduct.php"><i class="fa fa-cart-plus" style=""></i></a></button></td>
+        <td><button class="btn"><a href="profile.php">Profile</a></button></td>
+        <td><button class="btn"><a href="signupAdmin.php">User</a></button></td>
+        <td><button class="btn"><a href="crudProduct.php">Product</a></button></td>
     </tr>
 
 </table>
