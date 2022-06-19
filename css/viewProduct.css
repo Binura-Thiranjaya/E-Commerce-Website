@@ -4,6 +4,7 @@
 #navbar a  {
     text-decoration: none;
     padding: 12px;
+    
     color: black;
 }
 #navbar a:hover {
@@ -24,17 +25,17 @@ span {
 color: crimson;
 }
 
-/*Card*/
 #product{
     overflow: auto;
 }
 .card {
+
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
-    max-width: 200px;
+    max-width: 500px;
     float:left;
-    margin: 1% 1%;
+    margin: 1% 2%;
     text-align: center;
-    border-style: ridge;
+    border-style: outset;
     font-family: arial;
 
 }
@@ -66,32 +67,4 @@ color: crimson;
 
 .card button:hover {
     opacity: 0.7;
-}
-    /*Card*/
-
-#contact table{
-    font-weight: bold;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#contact table th{
-    font-size: 1.5rem;
-    width: 700px;
-}
-#contact table a{
-    text-decoration: none;
-    color: black;
-
-}
-#contact table a:hover {
-    text-decoration: underline;
-}
-#contact .info{
-    font-size: 0.8rem;
-}
-footer p{
-    background-color: wheat;
-    text-align: center;
 }

@@ -8,28 +8,36 @@ if(!isset($_SESSION["email"]))
 <html lang="">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./css/product.css">
+    <link rel="stylesheet" href="./css/viewProduct.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>ALL STOCK</title>
 </head>
+<script>
+    function logOut(){
+        alert("LogOut............");
+    }
+</script>
+<style>
+ #navbar{
+        font-family: arial, sans-serif;
+    }
+</style>
 <body>
 
-<div class="navbar">
-    <a href="./home.php">User</a>
-    <a href="./home.php">Home</a>
-    <a href="#news">Cart</a>
-
-    <div class="search-container">
-        <form action="">
-            <input type="text" placeholder="Search.." name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
+<div  id="navbar">
+        <div class="left">
+            <a href="./index.php"><label><span>BT </span>Enterprise</label> </a>
+            <a href="./profile.php"><i class="fa fa-user" aria-hidden="true"></i></a>
+            <a href="./index.php">Help & Contact</a>
+        </div>
+        <div class="right">
+            <a href="./product.php">Product</a>
+            <a href="./cart.php"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a>
+            <a href="./signIn.php" onclick="logOut()">LogOut</a>
+        </div>
     </div>
+<hr>
 
-</div>
-<div class="header">
-    <h1 style="text-align: center">ALL STOCK</h1>
-</div>
 <section class="productList" style="padding-left: 10%">
     <?php
     $con=mysqli_connect("localhost","root","","ECommerce");

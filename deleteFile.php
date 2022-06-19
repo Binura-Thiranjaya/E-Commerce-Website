@@ -1,5 +1,6 @@
 
 <?php
+session_start();
 //Delete
  $con=mysqli_connect("localhost","root","","ECommerce");
 

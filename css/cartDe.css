@@ -1,0 +1,61 @@
+#navbar{
+    overflow: auto;
+}
+#navbar a  {
+    text-decoration: none;
+    padding: 12px;
+    
+    color: black;
+}
+#navbar a:hover {
+    text-decoration: underline;
+}
+#navbar .left{
+    float: left;
+}
+#navbar .right{
+    float: right;
+}
+#navbar label{
+    font-size: 1rem;
+    position: relative;
+
+}
+span {
+color: crimson;
+}
+table {
+    margin:5% 0%;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+p{}
+.logout{
+    text-align: center;
+    float: right;
+    text-decoration: none;
+    width: 15%;
+    background-color: red;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn{
+    width: 100%;
+    background-color: brown;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;    
+}
